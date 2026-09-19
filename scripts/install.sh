@@ -2,17 +2,20 @@
 set -eu
 
 usage() {
-  printf '%s\n' 'Usage: scripts/install.sh {codex|antigravity|claude} [--copy]'
+  printf '%s\n' 'Usage: scripts/install.sh {codex|antigravity|claude} [skill-name] [--copy]'
   exit 64
 }
 
-[ "$#" -ge 1 ] && [ "$#" -le 2 ] || usage
+[ "$#" -ge 1 ] && [ "$#" -le 3 ] || usage
 
 agent=$1
-mode=${2:---link}
+skill_name=${2:-pair-programming-tutor}
+mode=${3:---link}
+[ "$skill_name" != "--copy" ] || { mode=--copy; skill_name=pair-programming-tutor; }
+[ "$skill_name" != "--link" ] || { mode=--link; skill_name=pair-programming-tutor; }
 [ "$mode" = '--link' ] || [ "$mode" = '--copy' ] || usage
 
-source_dir=$(CDPATH= cd -- "$(dirname -- "$0")/../skills/pair-programming-tutor" && pwd)
+source_dir=$(CDPATH= cd -- "$(dirname -- "$0")/../skills/$skill_name" && pwd)
 
 case "$agent" in
   codex) target_dir="${HOME}/.agents/skills" ;;
@@ -21,7 +24,7 @@ case "$agent" in
   *) usage ;;
 esac
 
-target="${target_dir}/pair-programming-tutor"
+target="${target_dir}/${skill_name}"
 mkdir -p "$target_dir"
 
 if [ "$mode" = '--copy' ]; then
@@ -31,8 +34,8 @@ if [ "$mode" = '--copy' ]; then
     exit 1
   fi
   cp -R "$source_dir" "$target"
-  printf 'Copied pair-programming-tutor to %s\n' "$target"
+  printf 'Copied %s to %s\n' "$skill_name" "$target"
 else
   ln -sfn "$source_dir" "$target"
-  printf 'Linked pair-programming-tutor to %s\n' "$target"
+  printf 'Linked %s to %s\n' "$skill_name" "$target"
 fi

@@ -1,22 +1,36 @@
-# Pair-Programming Tutor
+# Camon's Agent Skills
 
-An agent skill for beginner-friendly, interactive 1:1 programming tutoring. It uses a Feynman-style explanation, a brief diagnostic, a custom learning path, small runnable milestones, retrieval practice, controlled experiments, debugging practice, and an optional lesson archive.
+A personal collection of reusable Agent Skills for Codex, Google Antigravity, and Claude Code. Each skill is a directory with a portable `SKILL.md`; optional references, scripts, and assets stay beside it.
 
-The package intentionally uses only the portable Agent Skills core: a directory containing `SKILL.md` with `name` and `description` frontmatter. It does not require a particular model, plugin runtime, hook, or external service.
+## Included skills
+
+| Skill | Purpose |
+| --- | --- |
+| [`pair-programming-tutor`](skills/pair-programming-tutor/) | Interactive, beginner-friendly 1:1 programming and computer-science tutoring |
+
+New skills belong under `skills/<skill-name>/`. Keep each skill self-contained and add it to this table with a short trigger-oriented description.
+
+The collection intentionally uses only the portable Agent Skills core: a directory containing `SKILL.md` with `name` and `description` frontmatter. Skills should not require a particular model, plugin runtime, hook, or external service unless their README says so.
 
 ## Install
 
-Clone this repository, then expose the same `skills/pair-programming-tutor` directory at the location used by your agent. A symlink keeps it updated when the checkout is pulled; copy it instead if symlinks are unsuitable.
+Clone this repository, then expose the skill directory you want at the location used by your agent. A symlink keeps it updated when the checkout is pulled; copy it instead if symlinks are unsuitable.
 
 From the checkout, the included installer provides the same choices:
 
 ```sh
-scripts/install.sh codex
-scripts/install.sh antigravity
-scripts/install.sh claude
+scripts/install.sh codex pair-programming-tutor
+scripts/install.sh antigravity pair-programming-tutor
+scripts/install.sh claude pair-programming-tutor
 ```
 
 Append `--copy` to copy the package. The installer refuses to overwrite an existing skill directory.
+
+For example, to copy a skill instead of linking it:
+
+```sh
+scripts/install.sh claude pair-programming-tutor --copy
+```
 
 ### Codex
 
@@ -63,7 +77,7 @@ For a project, link it at `.claude/skills/pair-programming-tutor`. In Claude Cod
 
 ## Design
 
-`skills/pair-programming-tutor/SKILL.md` is the canonical, portable instruction file. It deliberately has no tool-specific frontmatter, dynamic shell interpolation, hooks, or provider-specific commands. The detailed learning-theory rationale lives beside it in `references/learning-design-rationale.md`, and source notes with an accuracy boundary are in `references/evidence-notes.md`.
+Each `skills/<skill-name>/SKILL.md` is a canonical, portable instruction file. Skills deliberately avoid tool-specific frontmatter, dynamic shell interpolation, hooks, and provider-specific commands. See [`templates/skill/SKILL.md`](templates/skill/SKILL.md) when adding another one.
 
 ## License
 
