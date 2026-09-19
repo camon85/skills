@@ -15,7 +15,7 @@ mode=${3:---link}
 [ "$skill_name" != "--link" ] || { mode=--link; skill_name=pair-programming-tutor; }
 [ "$mode" = '--link' ] || [ "$mode" = '--copy' ] || usage
 
-source_dir=$(CDPATH= cd -- "$(dirname -- "$0")/../skills/$skill_name" && pwd)
+source_dir=$(CDPATH= cd -- "$(dirname -- "$0")/../plugins/camon-agent-skills/skills/$skill_name" && pwd)
 
 case "$agent" in
   codex) target_dir="${HOME}/.agents/skills" ;;

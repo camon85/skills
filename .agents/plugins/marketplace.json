@@ -1,0 +1,20 @@
+{
+  "name": "camon-skills",
+  "interface": {
+    "displayName": "Camon's Agent Skills"
+  },
+  "plugins": [
+    {
+      "name": "camon-agent-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/camon-agent-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

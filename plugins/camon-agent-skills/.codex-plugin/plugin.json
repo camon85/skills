@@ -1,0 +1,6 @@
+{
+  "name": "camon-agent-skills",
+  "version": "1.1.0",
+  "description": "Camon's reusable Agent Skills for interactive tutoring and software work.",
+  "skills": "./skills/"
+}

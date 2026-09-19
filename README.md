@@ -6,9 +6,9 @@ A personal collection of reusable Agent Skills for Codex, Google Antigravity, an
 
 | Skill | Purpose |
 | --- | --- |
-| [`pair-programming-tutor`](skills/pair-programming-tutor/) | Interactive, beginner-friendly 1:1 programming and computer-science tutoring |
+| [`pair-programming-tutor`](plugins/camon-agent-skills/skills/pair-programming-tutor/) | Interactive, beginner-friendly 1:1 programming and computer-science tutoring |
 
-New skills belong under `skills/<skill-name>/`. Keep each skill self-contained and add it to this table with a short trigger-oriented description.
+New skills belong under `plugins/camon-agent-skills/skills/<skill-name>/`. Keep each skill self-contained and add it to this table with a short trigger-oriented description.
 
 The collection intentionally uses only the portable Agent Skills core: a directory containing `SKILL.md` with `name` and `description` frontmatter. Skills should not require a particular model, plugin runtime, hook, or external service unless their README says so.
 
@@ -49,14 +49,14 @@ Personal scope:
 
 ```sh
 mkdir -p ~/.agents/skills
-ln -sfn "$(pwd)/skills/pair-programming-tutor" ~/.agents/skills/pair-programming-tutor
+ln -sfn "$(pwd)/plugins/camon-agent-skills/skills/pair-programming-tutor" ~/.agents/skills/pair-programming-tutor
 ```
 
 Project scope for a repository:
 
 ```sh
 mkdir -p .agents/skills
-ln -sfn /absolute/path/to/pair-programming-tutor/skills/pair-programming-tutor \
+ln -sfn /absolute/path/to/skills/plugins/camon-agent-skills/skills/pair-programming-tutor \
   .agents/skills/pair-programming-tutor
 ```
 
@@ -68,7 +68,7 @@ Global scope:
 
 ```sh
 mkdir -p ~/.gemini/config/skills
-ln -sfn "$(pwd)/skills/pair-programming-tutor" \
+ln -sfn "$(pwd)/plugins/camon-agent-skills/skills/pair-programming-tutor" \
   ~/.gemini/config/skills/pair-programming-tutor
 ```
 
@@ -80,7 +80,7 @@ Personal scope:
 
 ```sh
 mkdir -p ~/.claude/skills
-ln -sfn "$(pwd)/skills/pair-programming-tutor" \
+ln -sfn "$(pwd)/plugins/camon-agent-skills/skills/pair-programming-tutor" \
   ~/.claude/skills/pair-programming-tutor
 ```
 
@@ -88,7 +88,7 @@ For a project, link it at `.claude/skills/pair-programming-tutor`. In Claude Cod
 
 ## Design
 
-Each `skills/<skill-name>/SKILL.md` is a canonical, portable instruction file. Skills deliberately avoid tool-specific frontmatter, dynamic shell interpolation, hooks, and provider-specific commands. See [`templates/skill/SKILL.md`](templates/skill/SKILL.md) when adding another one.
+Each `plugins/camon-agent-skills/skills/<skill-name>/SKILL.md` is a canonical, portable instruction file. Skills deliberately avoid tool-specific frontmatter, dynamic shell interpolation, hooks, and provider-specific commands. See [`templates/skill/SKILL.md`](templates/skill/SKILL.md) when adding another one.
 
 ## License
 
