@@ -32,6 +32,17 @@ For example, to copy a skill instead of linking it:
 scripts/install.sh claude pair-programming-tutor --copy
 ```
 
+### Codex plugin
+
+Codex CLI can register this repository as a GitHub marketplace and install the plugin:
+
+```sh
+codex plugin marketplace add camon85/skills
+codex plugin add camon-agent-skills@camon-skills
+```
+
+Open `codex` and use `/plugins` to verify or manage it. Start a new session after installation so the bundled skills are available. The plugin marketplace is defined in [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json), and the Codex-compatible plugin is under [`plugins/camon-agent-skills/`](plugins/camon-agent-skills/).
+
 ### Claude Code plugin
 
 This repository is also a Claude Code plugin marketplace. From Claude Code, add the GitHub marketplace and install the bundled plugin:
