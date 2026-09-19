@@ -1,0 +1,22 @@
+{
+  "name": "camon-skills",
+  "description": "Reusable Agent Skills maintained by camon85.",
+  "owner": {
+    "name": "camon85"
+  },
+  "plugins": [
+    {
+      "name": "camon-agent-skills",
+      "source": {
+        "source": "github",
+        "repo": "camon85/skills"
+      },
+      "description": "Camon's reusable Agent Skills for interactive tutoring and software work.",
+      "version": "1.0.0",
+      "author": {
+        "name": "camon85"
+      },
+      "homepage": "https://github.com/camon85/skills"
+    }
+  ]
+}
